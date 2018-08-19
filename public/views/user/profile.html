@@ -1,0 +1,179 @@
+<div ng-controller="quizcontroller">
+
+    <div ng-hide="quizfactory.quizActive || quizfactory.resultsActive">
+        <h2 class="cntr">Welcome To Quiz</h2><br>
+        <img class="center" src="https://st2.depositphotos.com/3732989/5332/i/950/depositphotos_53328865-stock-photo-lets-start.jpg"
+            alt="lets start"><br><br><br><br>
+        <div class="row">
+            <div class="col-md-4">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-warning" ng-click="activateQuiz()">
+                    <strong>Start Quiz</strong>
+                </button>
+            </div>
+        </div><br><br><br><br><br><br>
+    </div>
+    <div ng-show="quizfactory.quizActive">
+        <!--For timer-->
+        <h2 class="pull-right">Time Left : {{counter}} secs</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--Code ends-->
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Progress:</h2>
+                <div class="btn-toolbar">
+                    <button class="btn" ng-repeat="question in questions" ng-class="{'btn-info':question.selected!==null , 'btn-danger':question.selected===null}"
+                        ng-click="setActiveQuestion($index)">
+                        <span class="glyphicon" ng-class="{'glyphicon-pencil':question.selected!==null ,
+                        'glyphicon-question-sign':question.selected===null}"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <h4>&nbsp;&nbsp;Legend:</h4>
+                    <div class="col-sm-4">
+                        <button class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        <p>Answered</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </button>
+                        <p>Unanswered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--progreess area end-->
+        <div class="row">
+            <div class="alert alert-danger" ng-show="error">
+                Error! You have not answered all of the questions!
+                <button class="close" ng-click="error=false">&times</button>
+            </div>
+            <h3>&nbsp;&nbsp;Question:</h3>
+            <div class="well well-sm" ng-hide="finalise">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 id="ques">{{questions[activeQuestion].quesno + ". " +questions[activeQuestion].question}}</h4>
+                        <div class="row">
+                            <div class="col-sm-6" ng-repeat="answer in questions[activeQuestion].options">
+                                <h4 id="ques" class="answer" ng-class="{'bg-info':$index===questions[activeQuestion].selected}" ng-click="selectAnswer($index)">{{answer.answer}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-warning" ng-click="questionAnswered()">Continue</button>
+            </div><br><br><br><br>
+            <div class="well well-sm" ng-show="finalise">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 id="ques">{{timeup}}</h1>
+                        <br>
+                        <h3 id="ques"> Are you sure you want to submit your answers?</h3>
+                        <br>
+                        <button class="btn btn-success" ng-click="finalizeAnswers()">Yes</button>
+                        <button class="btn btn-danger" ng-show="no" ng-click="finalise=false">No</button>
+                    </div>
+                </div>
+            </div><br><br><br>
+        </div>
+        <!--question row-->
+    </div>
+
+    <div ng-show="quizfactory.resultsActive">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Results:</h2>
+                <div class="btn-toolbar">
+                    <button class="btn" ng-repeat="question in questions" ng-class="{'btn-success':question.correctflag,'btn-danger':!question.correctflag}"
+                        ng-click="setActiveQues($index)">
+                        <span class="glyphicon" ng-class="{'glyphicon-ok':question.correctflag , 'glyphicon-remove':!question.correctflag}"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <h4>&nbsp;&nbsp;Legend:</h4>
+                    <div class="col-sm-4">
+                        <button class="btn btn-success">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        <p>Correct</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <p>Incorrect</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>You Scored :
+                    <strong>{{numCorrect}} / {{questions.length}}</strong>
+                </h2>
+                <h2>Percentage :
+                    <strong>{{calculatePerc() | number:2}}%</strong>
+                </h2>
+                <h2>{{msg}}
+                    <strong>{{rank}}</strong>
+                </h2>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <h3>&nbsp;&nbsp;Questions:</h3>
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 id="ques">{{questions[activeQues].quesno + ". " +questions[activeQues].question}}</h4>
+                        <div class="row">
+                            <div class="col-sm-6" ng-repeat="answer in questions[activeQues].options">
+                                <h4 id="ques" class="answer" ng-class="getAnswerClass($index)">
+                                    {{answer.answer}}
+                                    <p class="pull-right" ng-show="$index!==questions[activeQues].correct && $index===questions[activeQues].selected">Your
+                                        Answer</p>
+                                    <p class="pull-right" ng-show="$index===questions[activeQues].correct">Correct Answer</p>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h2>Submit your score</h2>
+                <form name="userScore" ng-submit="score(userScore.$valid)" novalidate>
+                    <div class="form-group">
+                        <input type="text" name="name" ng-model="scoreobj.name" class="form-control" placeholder="Enter your name" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="score" ng-model="scoreobj.score" class="form-control" placeholder="Enter your percentage" required/>
+                    </div>
+                    <button class="btn btn-primary">Submit score</button>
+                    <br>
+                    <br>
+
+                </form>
+                <h2>{{msg}}
+                    <strong>{{rank}}</strong>
+                </h2><br><br>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!--quiz controller-->

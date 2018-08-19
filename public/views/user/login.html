@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h1>Sign In</h1>
+        <br>
+        <p ng-show="resp!=null" class="alert alert-warning" role="alert">{{resp}}</p>
+        <br>
+        <div ng-show="userSignin.email.$invalid && userSignin.email.$touched && userSignin.email.$error.required" class="alert alert-warning"
+            role="alert">
+            <p>Email is required</p>
+        </div>
+        <div ng-show="userSignin.email.$invalid && userSignin.email.$error.email" class="alert alert-warning" role="alert">
+            <p>Invalid email</p>
+        </div>
+        <div ng-show="userSignin.password.$invalid && userSignin.password.$touched && userSignin.password.$error.required" class="alert alert-warning"
+            role="alert">
+            <p>Password is required</p>
+        </div>
+
+        <form name="userSignin" ng-submit="signin(userSignin.$valid)" novalidate>
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" ng-model="user1.email" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" ng-model="user1.password" class="form-control" required />
+            </div>
+            <button class="btn btn-primary">Sign In</button>&nbsp;
+        </form>
+        <br>
+        <p>Don't have an account?
+            <a ng-href="#/register" style="color:blue">&nbsp;Sign up instead</a>
+        </p>
+    </div>
+</div><br><br><br><br><br><br>

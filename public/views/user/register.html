@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h1>Sign Up</h1>
+        <br>
+        <p ng-show="res!=null" class="alert alert-warning" role="alert">{{res}}</p>
+        <br>
+        <div ng-show="userSignup.email.$invalid && userSignup.email.$touched && userSignup.email.$error.required" class="alert alert-warning"
+            role="alert">
+            <p>Email is required</p>
+        </div>
+        <div ng-show="userSignup.email.$invalid && userSignup.email.$error.email" class="alert alert-warning" role="alert">
+            <p>Invalid email</p>
+        </div>
+        <div ng-show="userSignup.password.$invalid && userSignup.password.$touched && userSignup.password.$error.required" class="alert alert-warning"
+            role="alert">
+            <p>Password is required</p>
+        </div>
+        <div ng-show="userSignup.password.$error.pattern" class="alert alert-warning" role="alert">
+            <p>Atleast 5 characters required</p>
+        </div>
+
+
+        <form name="userSignup" ng-submit="signup(userSignup.$valid)" novalidate>
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" ng-model="user.email" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" ng-model="user.password" pattern=".{5,}" class="form-control" required/>
+            </div>
+            <button class="btn btn-primary">Sign Up</button>&nbsp;
+        </form>
+
+    </div>
+</div><br><br><br><br><br><br><br><br><br>
