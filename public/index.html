@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/routes/userroutes.js"></script>
+    <script src="javascripts/config/constants.js"></script>
+    <script src="javascripts/factory/userfactory.js"></script>
+    <script src="javascripts/factory/quizfactory.js"></script>
+    <script src="javascripts/controllers/usercontroller.js"></script>
+    <script src="javascripts/controllers/quizcontroller.js"></script>
+</head>
+
+<body class="bg-4" ng-app="myapp2" ng-controller="ctrl1">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="txtclr" class="navbar-brand" href="#"><span class="glyphicon glyphicon-education"></span> Exam Zone</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a id="txtclr" href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    </li>
+                    <li>
+                        <a id="txtclr" id="txtclr" href="#/profile" ng-show="state()"><span class="glyphicon glyphicon-user"></span>
+                            Profile</span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="txtclr" ng-show="!state()" href="#/login"><span class="glyphicon glyphicon-log-in"></span>
+                            Sign In</a>
+                    </li>
+                    <li>
+                        <a id="txtclr" ng-show="!state()" href="#/register"><span class="glyphicon glyphicon-user"></span>
+                            Sign Up</a>
+                    </li>
+                    <li>
+                        <a id="txtclr" ng-show="state()" href='#' ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+                            Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+    
+</body>
+<!-- ./Footer -->
+<font size=2px><br<br>
+    <div id="footer">
+        <p>Disclaimer:This site is designed by examzone and hosted by heroku</p>
+        <a href="/facebook"><span class="fa fa-facebook"  style="font-size: 30px"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/linkedin"><span class="fa fa-linkedin"  style="font-size: 30px"></span></a>&nbsp;
+        <a href="/github"><span class="fa fa-github fa-lg" style="font-size: 50px"></span></a>
+        <br><br>
+        <!--<a href="/privacypolicy" id="footer" style="color:white; text-decoration:none;">Privacy Policy</a>
+        &nbsp;&nbsp;&nbsp;<a href="/tc" id="footer" style="color:white;text-decoration:none;">Terms and Conditions</a>-->
+    
+        &nbsp;&nbsp;&nbsp;<a href="#" id="footer" style="color:white;text-decoration:none;">FAQ</a>
+        &nbsp;&nbsp;&nbsp;<a href="#" id="footer" style="color:white;text-decoration:none;">About us</a>
+        &nbsp;&nbsp;&nbsp;<a href="#"id="footer" style="color:white;text-decoration:none;">Advertising</a>
+    </div>
+    </font>
+    
+
+</html>
