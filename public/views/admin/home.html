@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 ">
+            <form>
+                <div class="form-group">
+                    <input type="text" ng-model="srchtxt.quesno" class="form-control" placeholder="Search question by quesno">
+                </div>
+            </form>
+        </div>
+    </div>
+    <h2>Questions Listing</h2>
+    <div class="alert alert-info" role="alert" ng-repeat="question in questions.data|filter:srchtxt" >
+        <h4>
+            <span>{{question.quesno}}</span> . {{question.question}}</h4>
+        <br>
+        <p ng-repeat="option in question.options ">{{$index+1}}. {{option.answer}}</p>
+        <br>
+        <p>Correct Answer :option {{question.correct+1}}</p>
+        <br>
+        <a class="btn btn-primary " ng-click="edit(question) ">
+            <span class="glyphicon glyphicon-pencil "></span>
+        </a>&nbsp;
+        <a class="btn btn-success " ng-click="delete(question) ">
+            <span class="glyphicon glyphicon-trash "></span>
+        </a>&nbsp;
+    </div>
+</div>

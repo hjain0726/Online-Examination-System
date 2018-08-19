@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Score Record</h1><br>
+    <table class="table">
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        <tr ng-repeat="record in docs">
+            <td>{{record.rank}}</td>
+            <td>{{record.name}}</td>
+            <td>{{record.score}}%</td>
+        </tr>
+    </table>
+</div>

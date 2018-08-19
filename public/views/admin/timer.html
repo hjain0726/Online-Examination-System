@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h1 class="cntr">Change Timer</h1>
+            <h3>{{msgupdt}}</h3><br>
+            <form name="timer" ng-submit="Duration(timer.$valid)" novalidate>
+                <div class="form-group">
+                    <input type="text" name="timer" ng-model="exam.timer" class="form-control" placeholder="Enter time duration you want to set for exam in secs" required />
+                </div>
+                <button class="btn btn-primary">Update Timer</button>&nbsp;
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container" >
+    <h1 style="text-align:center">Edit</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form name="userForm" ng-submit="updatedData(userForm.$valid)" novalidate>
+                    <div class="form-group">
+                            <input type="text" ng-model="update.quesno" name="quesno" ng-required="true" placeholder="Question number" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" ng-model="update.question" name="question" ng-required="true" placeholder="Question" class="form-control" />
+                        </div>
+                        <div ng-repeat="option in update.options">
+                            <div class="form-group">
+                                <input type="text" ng-model="option.answer" name="answer" ng-required="true" placeholder="Option {{$index}}" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" ng-model="update.correct" name="correct" ng-required="true" placeholder="correct option 0,1,2,3" class="form-control" />
+                        </div>        
+                <!--<div class="form-group">
+                    <input type="text" ng-model="update.name" name="name" ng-required="true" placeholder="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="text" ng-model="update.rollno" name="rollno" ng-required="true" placeholder="Roll no." class="form-control" />
+                </div>-->
+                <button class="btn btn-primary">Update</button>
+                <!--<input type="submit" value="Save" class="btn btn-primary" />-->
+            </form>
+        </div>
+    </div>
+    {{success}}
+</div>

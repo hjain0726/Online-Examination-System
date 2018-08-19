@@ -1,0 +1,36 @@
+<div class="container" ng-show="state()">
+    <h1>Welcome to admin</h1>
+</div>
+<div class="container" ng-show="!state()">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h1>Sign In</h1>
+            <br>
+            <p ng-show="resp!=null" class="alert alert-warning" role="alert">{{resp}}</p>
+            <br>
+            <div ng-show="adminSignin.email.$invalid && adminSignin.email.$touched && adminSignin.email.$error.required" class="alert alert-warning"
+                role="alert">
+                <p>Email is required</p>
+            </div>
+            <div ng-show="adminSignin.email.$invalid && adminSignin.email.$error.email" class="alert alert-warning" role="alert">
+                <p>Invalid email</p>
+            </div>
+            <div ng-show="adminSignin.password.$invalid && adminSignin.password.$touched && adminSignin.password.$error.required" class="alert alert-warning"
+                role="alert">
+                <p>Password is required</p>
+            </div>
+    
+            <form name="adminSignin" ng-submit="signin(adminSignin.$valid)" novalidate>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" name="email" ng-model="admin.email" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" ng-model="admin.password" class="form-control" required />
+                </div>
+                <button class="btn btn-primary">Sign In</button>&nbsp;
+            </form>
+        </div>
+    </div>
+</div>
