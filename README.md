@@ -10,6 +10,7 @@ https://examzone.herokuapp.com
 
 ## ADMIN Section
 Admin should have to go to /admin route to reach admin section here also authentication is present.
+Admin has whole CRUD functionality for exam questions and exam duration.He can also view the results of exam.
 
 ![exam2](https://user-images.githubusercontent.com/31067957/44311143-a7159e80-a3ff-11e8-8f85-bd4b73f0a89e.png)
 
