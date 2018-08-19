@@ -5,6 +5,7 @@ An online examination system using  MEAN Stack  i.e  mongoDB , express , angular
 https://examzone.herokuapp.com
 
 ## User Section
+After getting logged in user can give exam in a given time, see his score , percentage , rank , correct or incorrect answers.
 
 ![exam1](https://user-images.githubusercontent.com/31067957/44311142-a7159e80-a3ff-11e8-90b6-aec244b028b4.png)
 
