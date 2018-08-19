@@ -1,0 +1,88 @@
+.answer{
+    padding: 15px 20px;
+    border-radius: 10px;
+    border:1px solid #bbb;
+}
+.answer:hover{
+    cursor: pointer;
+}
+.bg-4 { 
+    background-image: url("https://wallpapercave.com/wp/LxjRT4o.jpg");
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+    background-attachment: fixed;
+}
+.admin{
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+    background-attachment: fixed;
+}
+#txtclr{
+    color: white;
+}
+
+#ques{
+    color: black
+}
+div#footer{
+	padding:10px;
+	color:white;
+	background-color:black;
+    text-align:center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+      padding: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+      padding: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+  .fa-github {
+    color: white;
+      padding: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+a:hover#fb{
+	text-shadow: 0 0 8px #2D44EF;
+}
+a:hover#footer{
+	text-shadow: 0 0 1px #FFFFFF;
+}
+.fa-linkedin:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook:hover {
+    opacity: 0.7;
+}
+ .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+
+ }
+
+ .cntr{
+     text-align: center;
+ }
