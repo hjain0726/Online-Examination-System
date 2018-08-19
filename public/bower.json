@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "authors": [
+    "hjain0726 <hjain0726@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2"
+  }
+}
