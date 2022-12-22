@@ -10,7 +10,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.2.6",
     "morgan": "~1.9.0",
     "password-hash": "^1.2.2"
